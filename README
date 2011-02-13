@@ -1,3 +1,5 @@
+http://wiki.nixos.org/wiki/Nix_on_Windows
+
 how to use this:
  - move the git contents into ~/.nixpkgs/
  - nix-env -qa '*' 
