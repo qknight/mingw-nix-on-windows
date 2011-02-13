@@ -1,0 +1,25 @@
+how to use this:
+ - move the git contents into ~/.nixpkgs/
+ - nix-env -qa '*' 
+ - nix-env -i winmingw
+
+# based on mingw-get-inst-20110211.exe
+http://lastlog.de/misc/MinGW-2011-02-11.tar.bz2
+-> winmingw.nix
+
+# qt library
+http://lastlog.de/misc/qt-everywhere-opensource-src-4.7.1.zip
+-> winqt.nix
+
+# evopedia
+http://lastlog.de/misc/evopedia-0.4.2.tar.gz 
+-> winevopedia.nix
+
+# NSIS
+http://lastlog.de/misc/NSIS.tar.bz2
+-> winnsis.nix
+
+# two goals: 
+# - normal evopedia build
+# - installer for evopedia
+# - installer for cygwin + nix
