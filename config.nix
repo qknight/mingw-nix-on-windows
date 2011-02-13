@@ -2,5 +2,6 @@
 {
    packageOverrides = pkgs : with pkgs; {
      winmingw = callPackage ./winmingw.nix {};
+     winqt = callPackage ./winqt.nix {};
    };
 }

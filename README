@@ -12,16 +12,39 @@ http://lastlog.de/misc/MinGW-2011-02-11.tar.bz2
 # qt library
 http://lastlog.de/misc/qt-everywhere-opensource-src-4.7.1.zip
 -> winqt.nix
+NOTE: when doing: 'unzip qt-every*.zip' in cygwin, there is an issue with
+      the path names. the problem is that:
+      configure and configure.exe can not exist in the same direcotry!
+  
+      so unzip will prompt for a decission to either [r]ename or [o]verwrite
+      configure.exe with configure
 
-# evopedia
-http://lastlog.de/misc/evopedia-0.4.2.tar.gz 
--> winevopedia.nix
+      another example of the same issue:
+        just try: touch AB; touch AB.exe (works)
+        just try: touch AB.exe; touch AB (fails)
+      why is that?
+see also http://hem.bredband.net/richardc/Cygwin.html
 
-# NSIS
-http://lastlog.de/misc/NSIS.tar.bz2
--> winnsis.nix
 
-# two goals: 
-# - normal evopedia build
-# - installer for evopedia
-# - installer for cygwin + nix
+# original goals: 
+# - install qt in nix but using mingw instead of cygwin-native gcc.
+#   one could use the nix package manager but also have native windows
+#   applications
+#
+# it turned out that this can not be done
+# - problems as PATH for programs
+#   nix package manger uses symlinks, DLLs in nix on windows are also symlinked
+#   to execute a qt program in windows, the PATH needs to be extended
+#   PATH = %PATH%;c:\cygwin\bin so that programs like mingw32-make can
+#   work correctly. but PATH also includes DLL files, but windows does
+#   NOT have RPATH features of unix and therefore using foo.dll several
+#   times is not possible. only one foo.dll MAY BE existent in the PATH
+#   -> it would also not matter if all foo.dll files are the same, but
+#      that does not happen most of the time ;-)
+#   a possible solution would be: install side-by-side shared files,
+#   see msdn.micorsoft.com/en-us/library/ms995843.aspx
+#   title: Chapter 3: Component Sharing
+#
+# - problem path names and convenient functionality of cygwin
+#   unzip qt-*.zip does not work in cygwin as configure and configure.exe
+#   can not exist in the same directory (dependent on creation order)
