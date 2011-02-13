@@ -42,7 +42,7 @@ see also http://hem.bredband.net/richardc/Cygwin.html
 #   -> it would also not matter if all foo.dll files are the same, but
 #      that does not happen most of the time ;-)
 #   a possible solution would be: install side-by-side shared files,
-#   see msdn.micorsoft.com/en-us/library/ms995843.aspx
+#   see http://msdn.microsoft.com/en-us/library/ms995843.aspx
 #   title: Chapter 3: Component Sharing
 #
 # - problem path names and convenient functionality of cygwin
