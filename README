@@ -34,11 +34,11 @@ see also http://hem.bredband.net/richardc/Cygwin.html
 # it turned out that this can not be done
 # - problems as PATH for programs
 #   nix package manger uses symlinks, DLLs in nix on windows are also symlinked
-#   to execute a qt program in windows, the PATH needs to be extended
-#   PATH = %PATH%;c:\cygwin\bin so that programs like mingw32-make can
-#   work correctly. but PATH also includes DLL files, but windows does
-#   NOT have RPATH features of unix and therefore using foo.dll several
-#   times is not possible. only one foo.dll MAY BE existent in the PATH
+#   to execute a program in windows, the PATH needs to be extended
+#   PATH = %PATH%;c:\MinGW\bin so that programs like mingw32-make can
+#   work correctly. but PATH on windows also includes DLL files, but windows does
+#   NOT have RPATH features nor LD_LIBRARY_PATH (like unix). therefore using foo.dll 
+#   several times is not possible. only one foo.dll MAY BE existent in the PATH
 #   -> it would also not matter if all foo.dll files are the same, but
 #      that does not happen most of the time ;-)
 #   a possible solution would be: install side-by-side shared files,
